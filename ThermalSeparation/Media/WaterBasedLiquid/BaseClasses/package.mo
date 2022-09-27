@@ -4,7 +4,7 @@ package BaseClasses "Medium models for water"
 
 extends Modelica.Icons.Package;
   constant
-  ThermalSeparation.Media.WaterBasedLiquid.BaseClasses.PartialWaterBased.FluidConstants[
+  ThermalSeparation.Media.WaterBasedLiquid.BaseClasses.Common.FluidConstants[
                                                            1] waterConstants(
      each chemicalFormula = "H2O",
      each structureFormula="H2O",
@@ -23,7 +23,7 @@ extends Modelica.Icons.Package;
      each hasCriticalData=true);
 
   constant
-  ThermalSeparation.Media.WaterBasedLiquid.BaseClasses.PartialMedium.FluidConstants[
+  ThermalSeparation.Media.WaterBasedLiquid.BaseClasses.Common.FluidConstants[
                                         1] simpleWaterConstants(
   each chemicalFormula="H2O",
   each structureFormula="H2O",

@@ -29,8 +29,7 @@ partial package BaseIdealGasMixture
     "Default value for pressure of medium (for initialization)";
   constant Temperature T_default = Modelica.Units.Conversions.from_degC(20)
     "Default value for temperature of medium (for initialization)";
-  constant SpecificEnthalpy h_default = ThermalSeparation.Media.IdealGasMixtures.BaseClasses.BaseIdealGasMixture.specificEnthalpy_pTX(
-                                                             p_default, T_default, X_default)
+  constant SpecificEnthalpy h_default = 0.0
     "Default value for specific enthalpy of medium (for initialization)";
   constant MassFraction X_default[nX]=reference_X
     "Default value for mass fractions of medium (for initialization)";
@@ -419,7 +418,7 @@ end specificGibbsEnergy;
 
  function h_TX "Return specific enthalpy"
     import
-      ThermalSeparation.Media.IdealGasMixtures.BaseClasses.PartialMedium.Choices;
+      ThermalSeparation.Media.IdealGasMixtures.BaseClasses.Common.Choices;
     extends Modelica.Icons.Function;
     input SI.Temperature T "Temperature";
     input MassFraction X[:]=reference_X

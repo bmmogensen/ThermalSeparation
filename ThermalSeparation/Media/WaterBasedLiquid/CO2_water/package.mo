@@ -4,7 +4,8 @@ package CO2_water "CO2, H2O"
            constant Real phi[nSubstance]= {1,2.26}
   "association factor of each substance, if this substance is to be the solvent - used for claculation of diffusion coeffcients";
 
-
+import ThermalSeparation.Media.WaterBasedLiquid.BaseClasses.Common.SaturationProperties;
+import ThermalSeparation.Media.WaterBasedLiquid.BaseClasses.waterConstants;
   extends ThermalSeparation.Media.WaterBasedLiquid.BaseClasses.PartialWaterBased(
                                                                            has_etaSubstance={false, true}, Tcrit= {
      304.12,
@@ -262,6 +263,7 @@ redeclare model extends HenryCoefficient
     "constant to calculate temperature dependency";
      parameter SI.Temperature henry_T_norm=298 "norm temperature";
      parameter Boolean henry_temp = true;
+  import ThermalSeparation.Media.WaterBasedLiquid.BaseClasses.Common.SaturationProperties;
 
       replaceable model HenryCoeff =
       ThermalSeparation.Media.Correlations.HenryCoefficient.Exponential                                   constrainedby ThermalSeparation.Media.Correlations.HenryCoefficient.BaseHenry;
