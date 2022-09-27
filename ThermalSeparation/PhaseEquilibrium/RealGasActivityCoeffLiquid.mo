@@ -3,9 +3,9 @@ model RealGasActivityCoeffLiquid
   "gas fugacity coefficient not equal to one, non-ideality of liquid taken into account using an activity coefficient"
  extends BasePhaseEquilibrium;
   MediumLiquid.HenryCoefficient henryCoefficient(x_l=x_l, T=T);
+  MediumLiquid.FugacityCoefficient fugacityCoeffSat(T=T, p=p, p_sat=p_sat);
   MediumVapour.FugacityCoefficient fugacityCoeff(T=T, p=p, x=x_v, v=v_v);
   MediumLiquid.ActivityCoefficient activityCoeff(T=T,x_l=x_l);
-  MediumLiquid.FugacityCoefficient fugacityCoeffSat(T=T, p=p, p_sat=p_sat);
   SI.Pressure p_partial[nS] "saturation pressure of each component";
 equation
      for i in 1:nS loop

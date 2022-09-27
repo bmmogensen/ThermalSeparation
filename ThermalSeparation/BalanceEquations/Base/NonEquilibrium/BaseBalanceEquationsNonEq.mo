@@ -128,7 +128,7 @@ extends ThermalSeparation.BalanceEquations.Base.BaseBalanceEquations;
     "dummy molar flow rate to account for discharge of inert gas during startUp";
 
   input Boolean before_transition[n];
-  parameter Boolean StartUp_CCS=falseannotation(Dialog(tab="Propagated from Column",group="These variables are propagated from the column model and do not have to be set by the user!",enable=false));
+  parameter Boolean StartUp_CCS=false annotation(Dialog(tab="Propagated from Column",group="These variables are propagated from the column model and do not have to be set by the user!",enable=false));
   parameter SI.Time delay_startUp=200 annotation(Dialog(tab="Propagated from Column",group="These variables are propagated from the column model and do not have to be set by the user!",enable=false));
   input Real k;
   parameter Boolean smooth_startUp=false annotation(Dialog(tab="Propagated from Column",group="These variables are propagated from the column model and do not have to be set by the user!",enable=false));

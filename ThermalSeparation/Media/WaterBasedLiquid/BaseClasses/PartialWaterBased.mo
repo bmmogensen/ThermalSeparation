@@ -27,7 +27,9 @@ partial package PartialWaterBased
           enthalpy and entropy are used as safeguards in inverse iterations.</p>
           </html>"));
   end FluidLimits;
-
+  
+  import ThermalSeparation.Media.WaterBasedLiquid.BaseClasses.Common.SaturationProperties;
+  
   redeclare replaceable model extends BaseProperties
     "Base properties (p, d, T, h, u, R, MM, sat) of two phase medium"
     SaturationProperties sat "Saturation properties at the medium pressure";

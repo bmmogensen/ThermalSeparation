@@ -8,9 +8,9 @@ partial model BasePhaseEquilibrium
   parameter Integer mapping[nS,2]
     "parameter to map the different medium vectors one to another"  annotation(Dialog(enable=false));
   replaceable package MediumVapour =
-      ThermalSeparation.Media.BaseMediumVapour  annotation(Dialog(enable=false));
+      ThermalSeparation.Media.BaseMediumVapour annotation(Dialog(enable=false));
   replaceable package MediumLiquid =
-      ThermalSeparation.Media.BaseMediumLiquid  annotation(Dialog(enable=false));
+      ThermalSeparation.Media.BaseMediumLiquid annotation(Dialog(enable=false));
   input SI.Temperature T;
   input SI.MoleFraction x_l[nSL];
   input SI.MoleFraction x_v[nSV];

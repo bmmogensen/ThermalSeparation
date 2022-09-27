@@ -27,7 +27,7 @@ partial package PartialMedium
     "Default value for pressure of medium (for initialization)";
   constant Temperature T_default = Modelica.Units.Conversions.from_degC(20)
     "Default value for temperature of medium (for initialization)";
-  constant SpecificEnthalpy h_default = ThermalSeparation.Media.WaterBasedLiquid.BaseClasses.PartialMedium.specificEnthalpy_pTX(p_default, T_default, X_default)
+  constant SpecificEnthalpy h_default = specificEnthalpy_pTX(p_default, T_default, X_default)
     "Default value for specific enthalpy of medium (for initialization)";
   constant MassFraction X_default[nX]=reference_X
     "Default value for mass fractions of medium (for initialization)";
@@ -50,63 +50,7 @@ partial package PartialMedium
   constant Boolean pT_explicit= true
     "true if explicit in pressure and temperature";
 
-  replaceable record FluidConstants
-    "critical, triple, molecular and other standard data of fluid"
-    extends Modelica.Icons.Record;
-    String iupacName "complete IUPAC name (or common name, if non-existent)";
-    String casRegistryNumber
-      "chemical abstracts sequencing number (if it exists)";
-    String chemicalFormula
-      "Chemical formula, (brutto, nomenclature according to Hill";
-    String structureFormula "Chemical structure formula";
-    MolarMass molarMass "molar mass";
-        Temperature criticalTemperature "critical temperature";
-      AbsolutePressure criticalPressure "critical pressure";
-      MolarVolume criticalMolarVolume "critical molar Volume";
-      Real acentricFactor "Pitzer acentric factor";
-      Temperature triplePointTemperature "triple point temperature";
-      AbsolutePressure triplePointPressure "triple point pressure";
-      Temperature meltingPoint "melting point at 101325 Pa";
-      Temperature normalBoilingPoint "normal boiling point (at 101325 Pa)";
-      DipoleMoment dipoleMoment
-      "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
-      Boolean hasIdealGasHeatCapacity=false
-      "true if ideal gas heat capacity is available";
-      Boolean hasCriticalData=false "true if critical data are known";
-      Boolean hasDipoleMoment=false "true if a dipole moment known";
-      Boolean hasFundamentalEquation=false "true if a fundamental equation";
-      Boolean hasLiquidHeatCapacity=false
-      "true if liquid heat capacity is available";
-      Boolean hasSolidHeatCapacity=false
-      "true if solid heat capacity is available";
-      Boolean hasAccurateViscosityData=false
-      "true if accurate data for a viscosity function is available";
-      Boolean hasAccurateConductivityData=false
-      "true if accurate data for thermal conductivity is available";
-      Boolean hasVapourPressureCurve=false
-      "true if vapour pressure data, e.g. Antoine coefficents are known";
-      Boolean hasAcentricFactor=false
-      "true if Pitzer accentric factor is known";
-      SpecificEnthalpy HCRIT0=0.0
-      "Critical specific enthalpy of the fundamental equation";
-      SpecificEntropy SCRIT0=0.0
-      "Critical specific entropy of the fundamental equation";
-      SpecificEnthalpy deltah=0.0
-      "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
-      SpecificEntropy deltas=0.0
-      "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
-
-    annotation(Documentation(info="<html></html>"));
-  end FluidConstants;
-constant FluidConstants[nS] fluidConstants "constant data for the fluid";
-
-  replaceable record SaturationProperties
-    "Saturation properties of two phase medium"
-    extends Modelica.Icons.Record;
-    AbsolutePressure psat "saturation pressure";
-    Temperature Tsat "saturation temperature";
-    annotation(Documentation(info="<html></html>"));
-  end SaturationProperties;
+constant ThermalSeparation.Media.WaterBasedLiquid.BaseClasses.Common.FluidConstants[nS] fluidConstants "constant data for the fluid";
 
   redeclare replaceable model extends BaseProperties
     "Base properties (p, d, T, h, u, R, MM and, if applicable, X) of a medium"

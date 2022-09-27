@@ -15,9 +15,7 @@ package N2_H2O_O2 "3 components: N2, H2O, O2"
   extends ThermalSeparation.Media.IdealGasMixtures.BaseClasses.BaseIdealGasMixture(
                                                                              delta_hv_medium = true,
                               nS=3,nSubstance=3,V = {18.5, 13.1, 16.3}, eq_Tsonopoulos = {1, 6, 1}, sigma = {3.798, 2.641, 3.467},  epsilon_k = {71.4, 809.1,106.7},
-    SpecificEnthalpy(start=if referenceChoice == ReferenceEnthalpy.ZeroAt0K then
-                3e5 else if referenceChoice == ReferenceEnthalpy.UserDefined then
-                h_offset else 0, nominal=1.0e5),
+    SpecificEnthalpy(start=0.0, nominal=1.0e5),
     Density(start=2, nominal=10),
     AbsolutePressure(start= 10e5, nominal=10e5),
     Temperature(start=500, nominal=500),
